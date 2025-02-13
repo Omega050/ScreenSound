@@ -18,7 +18,10 @@ internal class MenuVisualizarBanda : Menu
         {
             Console.Clear();
             bandaBuscada.ExibirDetalhes();
-            Console.WriteLine($"\nPressione enter para voltar ao menu, ou 1 para avaliar a banda {bandaBuscada.Nome}.");
+            Console.WriteLine(@$"Opções:
+0 - Voltar ao menu.
+1 - Ver discografia da banda {bandaBuscada.Nome}.
+2 - Avaliar a banda {bandaBuscada.Nome}.");
             string op = Console.ReadLine();
             if (int.TryParse(op, out int opNum))
             {
@@ -26,6 +29,12 @@ internal class MenuVisualizarBanda : Menu
                 {
                     MenuAvaliarBanda menu = new();
                     menu.Executar(bandaBuscada);
+                }
+                if (opNum == 2)
+                {
+                    bandaBuscada.ExibirDiscografia();
+                    Console.WriteLine("\nPressione enter para voltar ao menu");
+                    Console.ReadLine();
                 }
             }
             else

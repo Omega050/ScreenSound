@@ -3,13 +3,15 @@
 internal class Album
 {
     public string Nome { get; }
-    private List<Musica> Musicas { get; } = new List<Musica>();
-
+    private List<Musica> Musicas { get; }
+    public Banda Banda { get; }
     public int DuracaoTotal => Musicas.Sum(m => m.Duracao);
 
-    public Album(string nome)
+    public Album(string nome, Banda banda)
     {
         Nome = nome;
+        Banda = banda;
+        Musicas = new List<Musica>();
     }
 
     public void AdicionarMusica(Musica musica)
@@ -19,7 +21,7 @@ internal class Album
 
     public void ExibirMusicas()
     {
-        Console.WriteLine($"\nO álbum {Nome} possui duração total de {DuracaoTotal} segundos e contém as seguintes músicas:\n");
+        Console.WriteLine($"\nO álbum {Nome}, pertencente à banda {Banda.Nome}, possui duração total de {DuracaoTotal} segundos e contém as seguintes músicas:\n");
 
         if (Musicas.Count == 0)
         {

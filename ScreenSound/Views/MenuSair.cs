@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ScreenSound.Views
+namespace ScreenSound.Views;
+
+internal class MenuSair : Menu
 {
-    internal class MenuSair : Menu
+    public void Executar()
     {
-        public void Executar()
-        {
-            Console.WriteLine("Tchau tchau :)");
-        }                   
-    }
+        Console.WriteLine("Tchau tchau :)");
+    }                   
 }
