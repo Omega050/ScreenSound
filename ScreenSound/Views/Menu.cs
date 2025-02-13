@@ -26,6 +26,7 @@ internal class Menu
             Console.WriteLine($"Banda {i} - {banda.Nome}");
             i++;
         }
+        Console.WriteLine();
     }
 
     public virtual void Executar(List<Banda> bandasRegistradas)

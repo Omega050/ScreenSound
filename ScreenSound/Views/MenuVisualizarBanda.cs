@@ -20,8 +20,9 @@ internal class MenuVisualizarBanda : Menu
             bandaBuscada.ExibirDetalhes();
             Console.WriteLine(@$"Opções:
 0 - Voltar ao menu.
-1 - Ver discografia da banda {bandaBuscada.Nome}.
-2 - Avaliar a banda {bandaBuscada.Nome}.");
+1 - Avaliar a banda {bandaBuscada.Nome}.
+2 - Ver discografia da banda {bandaBuscada.Nome}.");
+
             string op = Console.ReadLine();
             if (int.TryParse(op, out int opNum))
             {
