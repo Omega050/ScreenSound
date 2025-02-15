@@ -1,17 +1,22 @@
-﻿namespace Screensound.Models;
+﻿using ScreenSound.Models;
 
-internal class Album
+namespace Screensound.Models;
+
+internal class Album : IAvaliavel
 {
     public string Nome { get; }
     private List<Musica> Musicas { get; }
     public Banda Banda { get; }
     public int DuracaoTotal => Musicas.Sum(m => m.Duracao);
+    private List<Avaliacao> Notas { get; }
 
+    public float NotaMedia => Notas.Any() ? (float)Notas.Average(a => a.Nota) : 0f;
     public Album(string nome, Banda banda)
     {
         Nome = nome;
         Banda = banda;
         Musicas = new List<Musica>();
+        Notas = new List<Avaliacao>();
     }
 
     public void AdicionarMusica(Musica musica)
@@ -33,5 +38,10 @@ internal class Album
         {
             Console.WriteLine($"{i + 1} - {Musicas[i].Nome}");
         }
+    }
+    public void AdicionarNota(int n)
+    {
+        Avaliacao nota = Avaliacao.Parse(n);
+        Notas.Add(nota);
     }
 }

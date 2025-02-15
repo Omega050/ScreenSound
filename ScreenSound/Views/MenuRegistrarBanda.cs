@@ -11,7 +11,7 @@ internal class MenuRegistrarBanda : Menu
 {
     public override void Executar(List<Banda> bandasRegistradas)
     {
-        Console.Clear();
+        base.Executar(bandasRegistradas);
         Console.WriteLine("\x1b[3J");
         ExibirTituloDaOpcao("Registro de bandas");
         Console.Write("Nome da banda: ");

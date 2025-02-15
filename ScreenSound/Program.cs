@@ -6,6 +6,12 @@ internal class Program
     private static void Main(string[] args)
     {
         List<Banda> bandasRegistradas = new List<Banda>();
+        Dictionary<int, Menu> opcoes = new Dictionary<int, Menu>();
+        opcoes.Add(1, new MenuRegistrarBanda());
+        opcoes.Add(2, new MenuBuscarBanda());
+        opcoes.Add(3, new MenuAdicionarAlbum());
+        opcoes.Add(-1, new MenuSair());
+
 
         void ExibirLogo()
         {
@@ -35,34 +41,16 @@ internal class Program
 
             if (int.TryParse(opcaoEscolhida, out int opcaoEscolhidaNumerica))
             {
-                switch (opcaoEscolhidaNumerica)
+                if (opcoes.ContainsKey(opcaoEscolhidaNumerica))
                 {
-                    case 1:
-                        Menu menu1 = new MenuRegistrarBanda();
-                        menu1.Executar(bandasRegistradas);
-                        ExibirOpcoesDoMenu();
-                        break;
-                    case 2:
-                        Menu menu2 = new MenuListarBandas();
-                        menu2.Executar(bandasRegistradas);
-                        ExibirOpcoesDoMenu();
-                        break;
-                    case 3:
-                        Menu menu3 = new MenuAdicionarAlbum();
-                        menu3.Executar(bandasRegistradas);
-                        ExibirOpcoesDoMenu();
-                        ;
-                        break;
-                    case 4:
-                        ;
-                        break;
-                    case -1:
-                        Console.WriteLine("Tchau tchau :)");
-                        break;
-                    default:
-                        Console.WriteLine("Opção inválida");
-                        ExibirOpcoesDoMenu();
-                        break;
+                    Menu menuExibido = opcoes[opcaoEscolhidaNumerica];
+                    menuExibido.Executar(bandasRegistradas);
+                    if (opcaoEscolhidaNumerica > 0) ExibirOpcoesDoMenu();
+                }
+                else
+                {
+                    Console.WriteLine("Opção inválida");
+                    ExibirOpcoesDoMenu();
                 }
             }
             else
