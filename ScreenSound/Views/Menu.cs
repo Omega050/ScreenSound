@@ -29,6 +29,16 @@ internal class Menu
         Console.WriteLine();
     }
 
+    public void ExibirAlbuns(List<Album> albunsRegistrados)
+    {
+        int i = 1;
+        foreach (Album album in albunsRegistrados)
+        {
+            Console.WriteLine($"{i} - {album.Nome}, {album.Banda.Nome} ({album.NotaMedia})");
+            i++;
+        }
+        Console.WriteLine();
+    }
     public virtual void Executar(List<Banda> bandasRegistradas)
     {
         Console.Clear();
