@@ -2,7 +2,7 @@
 
 namespace Screensound.Models;
 
-internal class Banda
+internal class Banda : IAvaliavel
 {
     public string Nome { get; }
     private List<Album> Albums { get; } 
@@ -39,6 +39,6 @@ internal class Banda
 
     public void ExibirDetalhes()
     {
-        Console.WriteLine($"A banda {Nome} possui atualmente a nota {NotaMedia}.");
+        Console.WriteLine($"A banda {Nome} possui atualmente a nota {NotaMedia}.\n");
     }
 }

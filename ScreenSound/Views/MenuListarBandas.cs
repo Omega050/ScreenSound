@@ -7,29 +7,33 @@ using Screensound.Models;
 
 namespace ScreenSound.Views;
 
-internal class MenuListarBandas : Menu
+internal class MenuBuscarBanda : Menu
 {
     public override void Executar(List<Banda> bandasRegistradas)
     {
-        Console.Clear();
+        base.Executar(bandasRegistradas);
         Console.WriteLine("\x1b[3J");
         ExibirTituloDaOpcao("Exibindo as bandas registradas");
         ExibirBandas(bandasRegistradas);
-        Console.WriteLine("\nDigite 0 para voltar ao menu, ou 1 para visualizar detalhes de uma banda");
+        Console.WriteLine("\nInsira o nome da banda que deseja visualizar ou digite 0 para voltar ao menu.");
         string op = Console.ReadLine();
         if (int.TryParse(op, out int opNum))
         {
-            if (opNum == 0) ;
-            if (opNum == 1)
-            {
-                MenuVisualizarBanda menu3 = new();
-                menu3.Executar(bandasRegistradas);
-            }
+            if (opNum == 0) return;
         }
         else
         {
-            Console.WriteLine("Opção inválida");
-            Thread.Sleep(1500);
-        }
+            Banda bandaBuscada = bandasRegistradas.Find(b => b.Nome == op);
+            if (bandaBuscada == null)
+            {
+                Console.WriteLine("Banda não encontrada");
+                Thread.Sleep(3000);
+            }
+            else
+            {
+            MenuVisualizarBanda menu = new();
+            menu.VisualizarBanda(bandaBuscada);
+            }
+        } 
     }
 }

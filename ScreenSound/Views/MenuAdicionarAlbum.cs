@@ -11,6 +11,7 @@ internal class MenuAdicionarAlbum : Menu
 {
     public override void Executar(List<Banda> bandasRegistradas)
     {
+        base.Executar(bandasRegistradas);
         ExibirTituloDaOpcao("Adicionando um novo Album");
         Console.Write("Insira o nome do album que deseja cadastrar: ");
         string nomeDoAlbum = Console.ReadLine()!;

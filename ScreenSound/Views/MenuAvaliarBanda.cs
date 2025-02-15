@@ -9,7 +9,7 @@ namespace ScreenSound.Views;
 
 internal class MenuAvaliarBanda : Menu
 {
-    public void Executar(Banda banda)
+    public void Avaliar(Banda banda)
     {
         Console.Clear();
         Console.WriteLine($"Qual nota deseja atribuir à banda {banda.Nome}?");
