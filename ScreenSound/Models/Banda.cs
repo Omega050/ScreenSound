@@ -5,7 +5,7 @@ namespace Screensound.Models;
 internal class Banda : IAvaliavel
 {
     public string Nome { get; }
-    private List<Album> Albums { get; } 
+    public List<Album> Albums { get; } 
     private List<Avaliacao> Notas { get; } 
 
     public float NotaMedia => Notas.Any() ? (float)Notas.Average(a => a.Nota) : 0f;

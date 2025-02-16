@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ScreenSound.Views;
-
-internal class MenuAvaliarAblum : Menu
+namespace ScreenSound.Views
 {
+    internal class MenuAvaliarMusica
+    {
+    }
 }
