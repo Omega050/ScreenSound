@@ -14,14 +14,14 @@ namespace ScreenSound.Views
         {
             Console.Clear();
             banda.ExibirDiscografia();
-            Console.Write($"\nInsira o álbum ao qual deseja adicionar a música {musica}: ");
+            Console.Write($"\nInsira o álbum ao qual deseja adicionar a música {musica.Nome}: ");
             string albumEscolhido = Console.ReadLine();
             Album albumBuscado = banda.Albums.Find(a => a.Nome == albumEscolhido);
             if (albumBuscado != null)
             {
                 albumBuscado.AdicionarMusica(musica);
                 musica.DefinirAlbum(albumBuscado);
-                Console.WriteLine($"A música{musica.Nome} foi cadastrado ao album {albumBuscado.Nome}");
+                Console.WriteLine($"A música {musica.Nome} foi cadastrado ao album {albumBuscado.Nome}");
                 Thread.Sleep(2000);
             }
             else 

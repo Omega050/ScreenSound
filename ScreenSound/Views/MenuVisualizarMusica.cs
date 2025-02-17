@@ -12,7 +12,7 @@ namespace ScreenSound.Views
         public void Executar(Musica musica)
         {
             Console.Clear();
-            ExibirTituloDaOpcao("Exição detalhada da música");
+            ExibirTituloDaOpcao("Exibição detalhada da música");
             musica.ExibirFichaTecnica();
 
             Console.WriteLine();

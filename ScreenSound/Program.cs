@@ -8,7 +8,6 @@ internal class Program
     {
         List<Banda> bandasRegistradas = new List<Banda>();
         List<Musica> musicasRegistradas = new List<Musica>();
-    Dictionary<int, Menu> opcoes = new Dictionary<int, Menu>();
 
         Banda ira = new Banda("Ira!");
         ira.AdicionarNota(10);
@@ -19,14 +18,7 @@ internal class Program
         linkin.AdicionarAlbum(new Album("Hybrid", linkin));
         linkin.AdicionarAlbum(new Album("From Zero", linkin));
 
-        opcoes.Add(1, new MenuRegistrarBanda());
-        opcoes.Add(2, new MenuBuscarBanda());
-        opcoes.Add(3, new MenuAdicionarAlbum());
-        opcoes.Add(4, new MenuBuscarAlbum());
-        //opcoes.add(5, new menuadicionaralbum());
-        //opcoes.add(6, new menuadicionaralbum());
-        opcoes.Add(-1, new MenuSair());
-
+        musicasRegistradas.Add(new("Heavy is The Crown", linkin, Genero.Rock, 176, true));
         bandasRegistradas.Add(ira);
         bandasRegistradas.Add(linkin);
         void ExibirLogo()
