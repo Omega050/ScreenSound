@@ -10,12 +10,12 @@ namespace ScreenSound.Views
     internal class MenuBuscarMusica : Menu
     {
         public List<Musica> musicasRegistradas = new List<Musica>();
-        public void Executar(List<Musica> MusicasRegistradas)
+        public void Executar(List<Musica> musicasRegistradas)
         {
             Console.Clear();
             int i = 0;
             ExibirTituloDaOpcao("Musicas Registradas");
-            foreach (Musica musica in MusicasRegistradas)
+            foreach (Musica musica in musicasRegistradas)
             {
                 i++;
                 if(musica.Album!=null) Console.WriteLine($"Música {i}: {musica.Nome} - {musica.Artista.Nome}, {musica.Album.Nome} ({musica.NotaMedia}");
@@ -31,7 +31,7 @@ namespace ScreenSound.Views
             }
             else
             {
-                Musica musicaBuscada = musicasRegistradas.Find(b => b.Nome == op);
+                Musica? musicaBuscada = musicasRegistradas.Find(m => m.Nome.Equals(op, StringComparison.OrdinalIgnoreCase));
                 if (musicaBuscada == null)
                 {
                     Console.WriteLine("Música não encontrada");
@@ -39,8 +39,8 @@ namespace ScreenSound.Views
                 }
                 else
                 {
-                    MenuVisualizarAlbum menu = new();
-                    musicaBuscada.ExibirFichaTecnica();
+                    MenuVisualizarMusica menu = new();
+                    menu.Executar(musicaBuscada);
                 }
 
             }

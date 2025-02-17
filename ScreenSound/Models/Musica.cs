@@ -27,7 +27,7 @@ internal class Musica : IAvaliavel
     public void ExibirFichaTecnica()
     {
         Console.WriteLine($"Música: {Nome}");
-        Console.WriteLine($"Artista: {Artista}");
+        Console.WriteLine($"Artista: {Artista.Nome}");
         Console.WriteLine($"Gênero: {Genero}");
         Console.WriteLine($"Duração: {Duracao}");
         Console.WriteLine($"Disponível: {(Disponivel ? "Sim" : "Não")}");
