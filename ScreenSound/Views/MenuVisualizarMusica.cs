@@ -7,30 +7,28 @@ using Screensound.Models;
 
 namespace ScreenSound.Views
 {
-    internal class MenuVisualizarAlbum : Menu
+    internal class MenuVisualizarMusica : Menu
     {
-        public void VisualizarAlbum(Album albumBuscado)
+        public void Executar(Musica musica)
         {
             Console.Clear();
+            ExibirTituloDaOpcao("Exição detalhada da música");
+            musica.ExibirFichaTecnica();
+
+            Console.WriteLine();
             Console.WriteLine(@$"Opções:
 0 - Voltar ao menu.
-1 - Avaliar o albúm {albumBuscado.Nome}.
-2 - Ver músicas do albúm {albumBuscado.Nome}.");
+1 - Avaliar a música {musica.Nome}.");
 
             string op = Console.ReadLine();
+
             if (int.TryParse(op, out int opNum))
             {
                 if (opNum == 0) return;
                 if (opNum == 1)
                 {
-                    MenuAvaliarAlbum menu = new();
-                    menu.Avaliar(albumBuscado);
-                }
-                if (opNum == 2)
-                {
-                    albumBuscado.ExibirMusicas();
-                    Console.WriteLine("\nPressione enter para voltar ao menu");
-                    Console.ReadLine();
+                    MenuAvaliarMusica menu = new();
+                    menu.Avaliar(musica);
                 }
             }
             else
@@ -39,7 +37,4 @@ namespace ScreenSound.Views
             }
         }
     }
-
 }
-    
-

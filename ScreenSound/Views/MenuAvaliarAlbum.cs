@@ -12,12 +12,12 @@ namespace ScreenSound.Views
         public void Avaliar(Album album)
         {
             Console.Clear();
-            Console.WriteLine($"Qual nota deseja atribuir à banda {album.Nome}?");
+            Console.WriteLine($"Qual nota deseja atribuir ao albúm {album.Nome}?");
             string n = Console.ReadLine()!;
             if (int.TryParse(n, out int nota))
             {
                 album.AdicionarNota(nota);
-                Console.WriteLine($"\nA banda {album.Nome} recebeu a nota {nota}");
+                Console.WriteLine($"\nO album {album.Nome} recebeu a nota {nota}");
                 Thread.Sleep(1500);
             }
             else

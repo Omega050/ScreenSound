@@ -7,7 +7,8 @@ internal class Program
     private static void Main(string[] args)
     {
         List<Banda> bandasRegistradas = new List<Banda>();
-        Dictionary<int, Menu> opcoes = new Dictionary<int, Menu>();
+        List<Musica> musicasRegistradas = new List<Musica>();
+    Dictionary<int, Menu> opcoes = new Dictionary<int, Menu>();
 
         Banda ira = new Banda("Ira!");
         ira.AdicionarNota(10);
@@ -73,12 +74,10 @@ internal class Program
                         new MenuBuscarAlbum().Executar(bandasRegistradas);
                         break;
                     case 5:
-                        //new MenuAdicionarMusica().Executar();
-                        Console.WriteLine("Funcionalidade ainda não implementada.");
+                        new MenuAdicionarMusica().AdicionarMusica(bandasRegistradas, musicasRegistradas);
                         break;
                     case 6:
-                        // Implementar MenuBuscarMusica()
-                        Console.WriteLine("Funcionalidade ainda não implementada.");
+                        new MenuBuscarMusica().Executar(musicasRegistradas);
                         break;
                     case -1:
                         new MenuSair().Executar(bandasRegistradas);
